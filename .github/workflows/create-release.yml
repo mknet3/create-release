@@ -10,10 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: |
-        hub release create -m "ArgoCD-${{ github.sha }}" \
+        sha_short=$(git rev-parse --short HEAD)
+        hub release create -m "ArgoCD-$(sha_short)" \
           -m "This is an ArgoCD Release!
           If you need to roll back to this version, you can copy the sha version and execute the rollout action.
           sha-version: '${{ github.sha }}'" \
-          "$(date +%Y%m%d%H%M%S)"
+          "$(sha_short)"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
