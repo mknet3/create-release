@@ -10,8 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: |
-        hub release create -m "ArgoCD-${{ github.sha }}" /
-          -m "ArgoCD Release" -m "If you need to roll back to this version, you can copy the sha version -> '${{ github.sha }}' and execute the rollout action." /
+        hub release create -m "ArgoCD-${{ github.sha }}" \
+          -m "ArgoCD Release" -m "If you need to roll back to this version, you can copy the sha version -> '${{ github.sha }}' and execute the rollout action." \
           "$(date +%Y%m%d%H%M%S)"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
