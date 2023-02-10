@@ -13,7 +13,7 @@ jobs:
         sha_short=$(git rev-parse --short HEAD)
         hub release create -m "ArgoCD-$sha_short" \
           -m "This is an ArgoCD Release!
-          If you need to roll back to this version, you can copy the sha version and [execute the rollout action]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/workflows/create-release.yml).
+          If you need to roll back to this version, you can copy the sha version and [execute the rollback action]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/workflows/create-release.yml).
           sha-version: '${{ github.sha }}'" \
           "$sha_short"
       env:
