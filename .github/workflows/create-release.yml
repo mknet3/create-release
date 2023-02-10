@@ -1,0 +1,14 @@
+name: Publish Release
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: gh release create -m "ArgoCD-${{ gh.sha }}" "$(date +%Y%m%d%H%M%S)"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
