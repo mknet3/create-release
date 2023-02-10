@@ -8,6 +8,7 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     steps:
-    - run: hub release create -m "ArgoCD-${{ github.sha }}" -m "version:${{ github.sha }}" "$(date +%Y%m%d%H%M%S)"
+    - uses: actions/checkout@v3
+    - run: hub release create -m "ArgoCD-${{ github.sha }}" -m "If you need to do a rollback to this version, you can copy the sha version -> ${{ github.sha }} and execute the rollout action." "$(date +%Y%m%d%H%M%S)"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
