@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - run: hub release create -m "ArgoCD-${{ github.sha }}" -m "version: ${{ github.sha }}" "$(date +%Y%m%d%H%M%S)"
+    - run: hub release create -m "ArgoCD-${{ github.sha }}" -m "version:${{ github.sha }}" "$(date +%Y%m%d%H%M%S)"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
